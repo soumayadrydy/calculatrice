@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TP2 Ex2</title>
+    <style>
+        body{
+            background-color:lightsteelblue;
+        }
+        #calc {
+            /* border: 1px solid black; */
+            width: 500px;
+            margin: 0 auto;
+            padding: 5px;
+            box-shadow: 0 0 5px blue;
+            border-radius: 2px;
+        }
+
+        #calc .ligne {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-column-gap: 2px;
+            height: 50px;
+            margin-bottom: 2px;
+        }
+
+        #result {
+            width: 100%;
+            height: 50px;
+            margin-top: 5px;
+            margin-bottom: 5px; 
+            /* text-align :right; */
+            background-color: whitesmoke;
+            border:  1px solid black;
+            border-radius: 2px;
+            padding: 15px 0 0 0;
+        }
+
+        #eq {
+            font-size: 30px;
+            color: #222;
+            float: right;
+            margin-right: 10px;
+        }
+
+        .bouton {
+            background-color: #D6D6D6;
+            border: 1px solid #C6C6C6;
+            color: #444;
+            cursor:pointer;
+            text-align:center;
+            border-radius:3px;
+            font-size: 20px;
+        }
+        
+        .egal{
+            color: #FEFEFE;
+            background-color: #4D90FE;
+            border: 1px solid #4D90FE;
+        }
+
+        .chiffre{
+            background-color: #F5F5F5;
+        }
+
+        .bouton:hover {
+            box-shadow: 0px 1px 4px 0px rgb(0,0,0,0.2)
+        }
+
+    </style>
+   
+</head>
+<body>
+    <script>
+        
+        function effacer(){
+            document.getElementById('eq'). innerHTML="";}       
+       function  ajouter( car){
+        document.getElementById('eq').innerHTML+=car;
+       }
+       function calculer(){
+        let res=document.getElementById('eq');
+        res.innerHTML=eval(res.innerText);
+       }
+    
+    </script>
+    <br>
+   <h1 style="text-align:center;color:blue">Calculatrice</h1>
+   <br><br>
+    <div id="calc">
+        <div>
+           
+            <div id="result">
+                <span id="eq"></span>
+            </div>
+        </div>
+        <div class="ligne">
+            <input  type="button" class="bouton" id="bl" value="("  onclick="ajouter('(')" >
+            <input  type="button" class="bouton" id="br" value=")"  onclick="ajouter(')')"> 
+            <input  type="button" class="bouton" id="bpR" value="%" onclick="ajouter('%') "> 
+            <input  type="button" class="bouton" id="bce" value="CE" onclick="effacer()" >     
+        </div>
+        <div class="ligne">
+            <input  type="button" class="bouton chiffre" id="b7" value="7" onclick="ajouter('7') ">
+            <input  type="button" class="bouton chiffre" id="b8" value="8"  onclick="ajouter('8')">
+            <input  type="button" class="bouton chiffre" id="b9" value="9" onclick="ajouter('9')" >
+            <input  type="button" class="bouton" id="bd" value="÷"  onclick="ajouter('/')">     
+        </div>
+        <div class="ligne">
+            <input  type="button" class="bouton chiffre" id="b4" value="4"  onclick="ajouter('4')">
+            <input  type="button" class="bouton chiffre" id="b5" value="5" onclick="ajouter('5')">
+            <input  type="button" class="bouton chiffre" id="b6" value="6" onclick="ajouter('6')">
+            <input  type="button" class="bouton" id="bx" value="x"  onclick="ajouter('*')">     
+        </div>
+        <div class="ligne">
+            <input  type="button" class="bouton chiffre" id="b1" value="1" onclick="ajouter('1')" >
+            <input  type="button" class="bouton chiffre" id="b2" value="2"  onclick="ajouter('2')">
+            <input  type="button" class="bouton chiffre" id="b3" value="3"  onclick="ajouter('3')">
+            <input  type="button" class="bouton" id="bs" value="-" onclick="ajouter('-')">     
+        </div>
+        <div class="ligne"> 
+            <input  type="button" class="bouton chiffre" id="b0" value="0"  onclick="ajouter('0')">
+            <input  type="button" class="bouton" id="bv" value="."  onclick="ajouter('.')">
+            <input  type="button" id="be" class="egal bouton" value="="  onclick="calculer()" >
+            <input  type="button" class="bouton" id="bp" value="+"  onclick="ajouter('+')">     
+        </div>
+    </div>
+   
+</body>
+</html>
